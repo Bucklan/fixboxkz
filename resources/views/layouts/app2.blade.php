@@ -243,6 +243,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <!-- BEGIN: Slide Over Toggle -->
         <div class="text-center"><a href="javascript:;" data-tw-toggle="modal"
                                     data-tw-target="#basic-slide-over-preview" class="btn btn-primary">Show Slide
@@ -378,6 +379,8 @@
                 </div>
             </div>
         </div> <!-- END: Slide Over Content -->
+=======
+>>>>>>> a6434a9 (first commit)
         @yield('content')
     </div>
 

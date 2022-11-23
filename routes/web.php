@@ -31,6 +31,10 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function (){
     Route::post('/cart/{gift}/putToCart',[CartController::class,'putToCart'])->name('cart.puttocart');
     Route::post('/cart/{gift}/deleteFromCart',[CartController::class,'deleteFromCart'])->name('cart.deletefromcart');
+<<<<<<< HEAD
+=======
+//    Route::post('/cart/deleteallcart',[CartController::class,'deleteallcart'])->name('cart.deleteallcart');
+>>>>>>> a6434a9 (first commit)
     Route::get('/cart',[CartController::class,'index'])->name('cart.index');
     Route::post('/cart',[CartController::class,'buy'])->name('cart.buy');
     Route::post('/gift/{gift}/like',[GiftController::class,'like'])->name('gifts.like');
@@ -42,9 +46,15 @@ Route::middleware('auth')->group(function (){
     Route::post('/gift/profile',[LoginController::class,'profile'])->name('profile');
 
     Route::prefix('adm')->as('adm.')->middleware('hasrole:ADMIN,PARTNER,MODERATOR')->group(function () {
+<<<<<<< HEAD
         Route::resource('users/categories',CategoryController::class);
         Route::get('/users/gifts',[UserController::class,'gifts'])->name('users.gifts');
         Route::get('/users/gifts/search', [UserController::class, 'gifts'])->name('gifts.search');
+=======
+        Route::resource('categories',CategoryController::class);
+        Route::get('gifts',[UserController::class,'gifts'])->name('users.gifts');
+        Route::get('gifts/search', [UserController::class, 'gifts'])->name('gifts.search');
+>>>>>>> a6434a9 (first commit)
         Route::middleware('hasrole:ADMIN')->group(function () {
             Route::get('/users',[UserController::class,'index'])->name('users.index');
             Route::get('/users/search', [UserController::class, 'index'])->name('users.search');

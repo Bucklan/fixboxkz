@@ -47,12 +47,22 @@
         <div class="row justify-content-end">
             <div class="col-auto">
                     <select class="form-select" id="autoSizingSelect" name="sortBy">
+<<<<<<< HEAD
                         <option value="1">Sort by recently gifts</option>
                         <option value="2">Sort by old gifts</option>
                         <option value="3">Sort by cheap gift</option>
                         <option value="4">Sort by expensive gift</option>
                         <option value="5">Sort by Name Gifts</option>
                         <option value="6">Sort by Content</option>
+=======
+                        <option value="1">Sort by zhana gifts</option>
+                        <option value="2">Sort by eski gifts</option>
+                        <option value="3">Sort by arzan gift</option>
+                        <option value="4">Sort by qymbat gift</option>
+                        <option value="5">Sort by Name Gifts</option>
+                        <option value="6">Sort by Rating down</option>
+                        <option value="6">Sort by Rating up</option>
+>>>>>>> a6434a9 (first commit)
                     </select>
 
             </div>

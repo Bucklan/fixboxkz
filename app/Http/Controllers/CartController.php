@@ -21,18 +21,38 @@ class CartController extends Controller
     public function index()
     {
         $giftsInCart = Auth::user()->giftsWithStatus('in_cart')->get();
+<<<<<<< HEAD
         return view('cart.index', ['giftsInCart' => $giftsInCart]);
     }
 
     public function putToCart(Request $request, Gift $gift)
+=======
+        if (!empty($giftsInCart))
+            return view('cart.index', ['giftsInCart' => $giftsInCart]);
+        else
+            return view('cart.index');
+
+    }
+
+    public function putToCart(Gift $gift)
+>>>>>>> a6434a9 (first commit)
     {
         $giftsInCart = Auth::user()->giftsWithStatus('in_cart')->where('gift_id', $gift->id)->first();
         if ($giftsInCart != null)
             Auth::user()->giftsWithStatus('in_cart')->updateExistingPivot($gift->id,
+<<<<<<< HEAD
                 ['number' => $giftsInCart->pivot->number + $request->input('number')]);
         else
             Auth::user()->giftsWithStatus('in_cart')->attach($gift->id,
                 ['number' => $request->input('number')]);
+=======
+                ['number' => $giftsInCart->pivot->number + 1]);
+        else
+            Auth::user()->giftsWithStatus('in_cart')->attach($gift->id,
+                ['number' => 1]);
+
+        return redirect()->route('cart.index');
+>>>>>>> a6434a9 (first commit)
     }
 
     public function deleteFromCart(Gift $gift)
@@ -41,5 +61,18 @@ class CartController extends Controller
             ->where('gift_id', $gift->id)->first();
         if ($giftsBought != null)
             Auth::user()->giftsWithStatus('in_cart')->detach($gift->id);
+<<<<<<< HEAD
     }
+=======
+        return back();
+    }
+//    public function deleteallcart()
+//    {
+//        $giftsBought = Auth::user()->giftsWithStatus('in_cart')->get();
+//        if ($giftsBought != null)
+//            Auth::user()->giftsWithStatus('in_cart')->detach();
+//    return redirect()->route('cart.index');
+//    }
+
+>>>>>>> a6434a9 (first commit)
 }

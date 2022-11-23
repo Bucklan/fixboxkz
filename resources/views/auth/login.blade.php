@@ -7,9 +7,12 @@
         <div class="block xl:grid grid-cols-2 gap-4">
             <!-- BEGIN: Login Info -->
             <div class="hidden xl:flex flex-col min-h-screen">
+<<<<<<< HEAD
                 <a href="" class="-intro-x flex items-center pt-5">
                     <img alt="Midone - HTML Admin Template" src="dist/fixbox.png" width="150" height="150">
                 </a>
+=======
+>>>>>>> a6434a9 (first commit)
                 <div class="my-auto">
                     <img alt="Midone - HTML Admin Template" class="-intro-x w-1/2 -mt-16"
                          src="dist/images/illustration.svg">

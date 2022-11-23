@@ -18,6 +18,7 @@
                          src="{{asset('/storage/images/gifts/'.$gift->image)}}">
                 </div>
             </div>
+<<<<<<< HEAD
             {{$count}}
             @if($avg != 0)
                     <div class="flex items-center">
@@ -28,6 +29,17 @@
                                 <i data-lucide="star" class="text-slate-400 fill-slate/30 w-4 h-4 mr-1"></i>
                             @endfor
                     </div>
+=======
+            @if($avg != 0)
+                <div class="flex items-center">
+                    @for($i=0;$i<$avg;$i++)
+                        <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
+                    @endfor
+                    @for($i = 5;$i>$avg;$i--)
+                        <i data-lucide="star" class="text-slate-400 fill-slate/30 w-4 h-4 mr-1"></i>
+                    @endfor
+                </div>
+>>>>>>> a6434a9 (first commit)
                 <div class="text-xs text-slate-500 ml-1">{{$avg}}+</div>
             @endif
 
@@ -36,17 +48,37 @@
                     <form action="{{route('gifts.like',$gift->id)}}" method="post">
                         @csrf
                         <input type="hidden" name="like" value="false">
+<<<<<<< HEAD
                         <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                             </svg></button>
+=======
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                            </svg>
+                        </button>
+>>>>>>> a6434a9 (first commit)
                     </form>
                 @else
                     <form action="{{route('gifts.like',$gift->id)}}" method="post">
                         @csrf
                         <input type="hidden" name="like" value="true">
+<<<<<<< HEAD
                         <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                             </svg></button>
+=======
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-heart" viewBox="0 0 16 16">
+                                <path
+                                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                        </button>
+>>>>>>> a6434a9 (first commit)
                     </form>
                 @endif
                 <form action="{{route('gifts.rate',$gift->id)}}" method="post">
@@ -70,8 +102,13 @@
                     class="absolute sm:relative -mt-12 sm:mt-0 w-full flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm">
                     <div class="intro-x mr-1 sm:mr-3"> Comments: <span
                             class="font-medium">{{count($gift->comments)}}</span></div>
+<<<<<<< HEAD
                     <div class="intro-x mr-1 sm:mr-3"> Views: <span class="font-medium"></span></div>
                     <div class="intro-x sm:mr-3 ml-auto"> Likes: <span class="font-medium"></span></div>
+=======
+                    <div class="intro-x mr-1 sm:mr-3"> Likes: <span class="font-medium">            {{$count}}
+</span></div>
+>>>>>>> a6434a9 (first commit)
                 </div>
                 <a href=""
                    class="intro-x w-8 h-8 sm:w-10 sm:h-10 flex flex-none items-center justify-center rounded-full text-primary bg-primary/10 dark:bg-darkmode-300 dark:text-slate-300 ml-auto sm:ml-0 tooltip"
@@ -86,7 +123,10 @@
             <div class="text-base sm:text-lg font-medium">{{$gift->price}} KZT</div>
             <form action="{{route('cart.puttocart',$gift->id)}}" method="post">
                 @csrf
+<<<<<<< HEAD
                 <input type="number" name="number" placeholder="count gift">
+=======
+>>>>>>> a6434a9 (first commit)
                 <button class="btn btn-dark">CART</button>
             </form>
             <div
@@ -98,7 +138,10 @@
                     </div>
                     <div class="ml-3 mr-auto">
                         <a href="" class="font-medium">{{$gift->user->name}}</a>, Author
+<<<<<<< HEAD
                         <div class="text-slate-500">{{$gift->user->role->name}}</div>
+=======
+>>>>>>> a6434a9 (first commit)
                     </div>
                 </div>
             </div>
@@ -134,6 +177,7 @@
                                     <div class="flex items-center"><a href=""
                                                                       class="font-medium">{{$com->user->name}}</a>
                                         @auth
+<<<<<<< HEAD
                                             <form action="{{route('gift.destroy',$gift->id)}}" method="post">
                                                 @csrf
                                                 <div class="dropdown ml-3 justify-content-end">
@@ -146,24 +190,51 @@
                                                         <ul class="dropdown-content">
                                                             @method('DELETE')
                                                             @can('delete',$com)
+=======
+                                            @can('delete',$com)
+                                                <form action="{{route('gift.destroy',$gift->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div class="dropdown ml-3 justify-content-end">
+                                                        <a href="javascript:;"
+                                                           class="dropdown-toggle w-5 h-5 text-slate-500"
+                                                           aria-expanded="false" data-tw-toggle="dropdown"> <i
+                                                                data-lucide="more-vertical" class="w-4 h-4"></i>
+                                                        </a>
+
+                                                        <div class="dropdown-menu w-40">
+                                                            <ul class="dropdown-content">
+
+
+>>>>>>> a6434a9 (first commit)
                                                                 <li>
                                                                     <a href="" class="dropdown-item"> <i
                                                                             data-lucide="trash"
                                                                             class="w-4 h-4 mr-2"></i>
                                                                         Edit Post </a>
                                                                 </li>
+<<<<<<< HEAD
                                                             @endcan
                                                             @can('update',$com)
+=======
+>>>>>>> a6434a9 (first commit)
                                                                 <li>
                                                                     <a href="" class="dropdown-item"> <i
                                                                             data-lucide="edit-2"
                                                                             class="w-4 h-4 mr-2"></i>
                                                                         Delete Post </a>
                                                                 </li>
+<<<<<<< HEAD
                                                             @endcan
                                                         </ul>
                                                     </div>
                                                 </div>
+=======
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>@endcan
+>>>>>>> a6434a9 (first commit)
                                         @endauth
                                     </div>
                                     <div class="text-slate-500 text-xs sm:text-sm">{{$com->created_at->hour}}

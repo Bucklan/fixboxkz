@@ -27,8 +27,17 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($validated)) {
+<<<<<<< HEAD
             if(Auth::user()->role->name != "USER")
                 return  redirect()->intended('/adm/users');
+=======
+            if (Auth::user()->role->name != "USER") {
+                    if (Auth::user()->role->name == "PARTNER") {
+                        return redirect()->intended('/adm/gifts');
+                    }
+                    return redirect()->intended('/adm/users');
+            }
+>>>>>>> a6434a9 (first commit)
             return redirect()->intended('/gift');
         }
         return redirect()->back()->withErrors('Incorrect email or password');
@@ -42,9 +51,15 @@ class LoginController extends Controller
 
     public function profile()
     {
+<<<<<<< HEAD
       $users = Auth::user();
         $categories = Category::whereNull('parent_id')->with('categories')->get();
         return view('gifts.profile',['user'=>$users,'categories'=>$categories]);
+=======
+        $users = Auth::user();
+        $categories = Category::whereNull('parent_id')->with('categories')->get();
+        return view('gifts.profile', ['user' => $users, 'categories' => $categories]);
+>>>>>>> a6434a9 (first commit)
     }
 
 }
