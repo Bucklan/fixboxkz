@@ -70,33 +70,18 @@
                     </div>
                 </div>
             </li>
-            @isset($categories)
-                @foreach($categories as $cat)
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                           data-target="#collapse{{$cat->name}}"
-                           aria-expanded="true" aria-controls="collapse{{$cat->name}}">
-                            <span>{{$cat->name}}</span>
-                        </a>
-                        <div id="collapse{{$cat->name}}" class="collapse" aria-labelledby="headingThree"
-                             data-parent="#accordionSidebar">
-                            <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">about categories</h6>
-                                @foreach($cat->categories as $c)
-                                    <a class="collapse-item" href="{{route('gift.category',$c->id)}} ">{{$c->name}}</a>
-                                    @foreach($c->categories as $cs)
-                                        <a class="collapse-item"
-                                           href="{{route('gift.category',$cs->id)}} ">--{{$cs->name}}</a>
-                                    @endforeach
-                                @endforeach
-                                {{--                    @auth--}}
-                                {{--                        <a class="collapse-item" href="addcategory.php">Add Category</a>--}}
-                                {{--                    @endauth--}}
-                            </div>
-                        </div>
-                    </li>
-            @endforeach
-        @endisset
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                   aria-expanded="true" aria-controls="collapseThree">
+                    <span>Partners</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">about Partners</h6>
+                        <a class="collapse-item" href="{{route('adm.partners.request')}}">Request Partners</a>
+                    </div>
+                </div>
+            </li>
 
         <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

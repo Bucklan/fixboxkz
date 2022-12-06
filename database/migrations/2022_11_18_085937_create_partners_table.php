@@ -19,9 +19,7 @@ return new class extends Migration {
                 ->nullable()
                 ->constrained();
             $table->text('image');
-            $table->foreignId('category_id')
-                ->constrained()
-                ->onDelete('cascade');
+            $table->boolean("is_partner")->default(false);
             $table->timestamps();
         });
     }

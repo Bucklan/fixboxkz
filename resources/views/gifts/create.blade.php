@@ -58,7 +58,25 @@
                         <div class="invalid-feedback">{{$message}}</div>
                         @enderror
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            pre-order
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Black friday
+                        </label>
+                    </div><div class="form-check">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            SALES %
+                        </label>
+                        <input class="form-control @error('image') is-invalid @enderror" id="image" type="number" accept="image/png, image/gif, image/jpeg" name="image">
 
+
+                    </div>
                     <div class="mb-3">
                         <button class="btn btn-success">SAVE</button>
                     </div>

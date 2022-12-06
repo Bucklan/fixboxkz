@@ -84,4 +84,7 @@ class User extends Authenticatable
             ->withTimestamps()
             ->withPivot('number','status');
     }
+    public function partner(){
+        return $this->hasOne(Partner::class);
+    }
 }

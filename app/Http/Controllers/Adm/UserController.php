@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Gift;
+use App\Models\Partner;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,17 +14,27 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function showPartners(Partner $partner)
+    {
+        $partners = Partner::where('id',$partner->id)->first();
+        return view('admin.moderator.showPartners',['partner'=>$partners]);
+    }
 
-    public function confirm(Cart $cart){
+    public function confirm(Cart $cart)
+    {
         $cart->update([
-            'status'=>'confirmed'
+            'status' => 'confirmed'
         ]);
         return back();
     }
-    public function cart(){
-        $giftsInCart = Cart::where('status','ordered')->with(['gift','user'])->get();
-        return view('admin.cart',['giftsInCart'=>$giftsInCart]);
+
+    public function cart()
+    {
+        $giftsInCart = Cart::where('status', 'ordered')->with(['gift', 'user'])->get();
+        return view('admin.cart', ['giftsInCart' => $giftsInCart]);
     }
+
+
     public function index(Request $request)
     {
         $users = null;
@@ -35,6 +46,12 @@ class UserController extends Controller
             $users = User::with('role')->get();
         }
         return view('admin.users', ['users' => $users]);
+    }
+
+    public function partners()
+    {
+        $partners = User::with('partner')->get();
+        return view('admin.partners', ['partners' => $partners]);
     }
 
     public function gifts(Request $request)

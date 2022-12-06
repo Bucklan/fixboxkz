@@ -14,44 +14,26 @@
             <!-- BEGIN: Breadcrumb -->
             <nav aria-label="breadcrumb" class="-intro-x h-full mr-auto">
                 <ol class="breadcrumb breadcrumb-light">
-                    <li class="breadcrumb-item"><a href="#">Main Page</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Gifts</li>
+                    <li class="breadcrumb-item"><a href="#">{{ __('messages.Main_page') }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"></li>
                 </ol>
             </nav>
             <!-- END: Breadcrumb -->
             <!-- BEGIN: Search -->
-            <div class="intro-x relative mr-3 sm:mr-6">
-                <div class="search hidden sm:block">
-                    <input type="text" class="search__input form-control border-transparent" placeholder="Search...">
-                    <i data-lucide="search" class="search__icon dark:text-slate-500"></i>
-                </div>
-                <a class="notification notification--light sm:hidden" href=""> <i data-lucide="search"
-                                                                                  class="notification__icon dark:text-slate-500"></i>
-                </a>
-                <div class="search-result">
-                    <div class="search-result__content">
-                        <div class="search-result__content__title">Pages</div>
-                        <div class="mb-5">
-                            <a href="" class="flex items-center">
-                                <div
-                                    class="w-8 h-8 bg-success/20 dark:bg-success/10 text-success flex items-center justify-center rounded-full">
-                                    <i class="w-4 h-4" data-lucide="inbox"></i></div>
-                                <div class="ml-3">Mail Settings</div>
-                            </a>
-                            <a href="" class="flex items-center mt-2">
-                                <div
-                                    class="w-8 h-8 bg-pending/10 text-pending flex items-center justify-center rounded-full">
-                                    <i class="w-4 h-4" data-lucide="users"></i></div>
-                                <div class="ml-3">Users & Permissions</div>
-                            </a>
-                            <a href="" class="flex items-center mt-2">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 dark:bg-primary/20 text-primary/80 flex items-center justify-center rounded-full">
-                                    <i class="w-4 h-4" data-lucide="credit-card"></i></div>
-                                <div class="ml-3">Transactions Report</div>
-                            </a>
-                        </div>
-
+            <div class="intro-x relative ml-xl-n5">
+                <div class="intro-x dropdown w-8 h-8">
+                    <div class="dropdown-toggle w-8 h-8 rounded-full"
+                         role="button" aria-expanded="false" data-tw-toggle="dropdown">
+                        {{config('app.languages')[app()->getLocale()]}}
+                    </div>
+                    <div class="dropdown-menu w-56">
+                        <ul class="dropdown-content bg-primary/80 before:block before:absolute before:bg-black before:inset-0 before:rounded-md before:z-[-1] text-white">
+                           @foreach(config('app.languages') as $ln => $languages)
+                            <li class="p-2">
+                                <a href="{{route('switch.lang',$ln)}}" class="dropdown-item hover:bg-white/5">{{$languages}}</a>
+                            </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -76,7 +58,7 @@
                             <li>
                                 <a href="{{route('profile.form')}}" class="dropdown-item hover:bg-white/5"> <i
                                         data-lucide="user"
-                                        class="w-4 h-4 mr-2"></i> Profile
+                                        class="w-4 h-4 mr-2"></i> {{ __('messages.profile') }}
                                 </a>
                             </li>
                         @endauth
@@ -85,14 +67,14 @@
                                 <li>
                                     <a href="{{ route('register.form') }}" class="dropdown-item hover:bg-white/5"> <i
                                             data-lucide="user"
-                                            class="w-4 h-4 mr-2"></i>{{ __('Register') }}</a>
+                                            class="w-4 h-4 mr-2"></i>{{ __('messages.register') }}</a>
                                 </li>
                             @endif
                             @if(Route::has('login.form'))
                                 <li>
                                     <a href="{{ route('login.form') }}" class="dropdown-item hover:bg-white/5"> <i
                                             data-lucide="user"
-                                            class="w-4 h-4 mr-2"></i>{{ __('Login') }}</a>
+                                            class="w-4 h-4 mr-2"></i>{{ __('messages.login') }}</a>
                                 </li>
                             @endif
                             <li>
@@ -103,7 +85,7 @@
                                 <a class="dropdown-item" href="#" data-toggle="modal"
                                    data-target="#logoutModal" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ ('Logout') }}
+                                    {{ __('messages.log out') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -148,32 +130,32 @@
             <li>
                 <a href="javascript:;.html" class="top-menu top-menu--active">
                     <div class="top-menu__icon"><i data-lucide="home"></i></div>
-                    <div class="top-menu__title"> Gifts <i data-lucide="chevron-down" class="top-menu__sub-icon"></i>
+                    <div class="top-menu__title"> {{__('messages.Gifts')}} <i data-lucide="chevron-down" class="top-menu__sub-icon"></i>
                     </div>
                 </a>
                 <ul class="top-menu__sub-open">
                     <li>
                         <a href="top-menu-light-dashboard-overview-1.html" class="top-menu">
                             <div class="top-menu__icon"><i data-lucide="activity"></i></div>
-                            <div class="top-menu__title">For him</div>
+                            <div class="top-menu__title">{{__('messages.for him')}}</div>
                         </a>
                     </li>
                     <li>
                         <a href="top-menu-light-dashboard-overview-2.html" class="top-menu">
                             <div class="top-menu__icon"><i data-lucide="activity"></i></div>
-                            <div class="top-menu__title"> For her</div>
+                            <div class="top-menu__title">{{__('messages.for her')}}</div>
                         </a>
                     </li>
                     <li>
                         <a href="top-menu-light-dashboard-overview-3.html" class="top-menu">
                             <div class="top-menu__icon"><i data-lucide="activity"></i></div>
-                            <div class="top-menu__title"> For animals</div>
+                            <div class="top-menu__title">{{__('messages.for animals')}}</div>
                         </a>
                     </li>
                     <li>
                         <a href="top-menu-light-dashboard-overview-4.html" class="top-menu">
                             <div class="top-menu__icon"><i data-lucide="activity"></i></div>
-                            <div class="top-menu__title"> For family</div>
+                            <div class="top-menu__title">{{__('messages.for family')}}</div>
                         </a>
                     </li>
                 </ul>
@@ -184,7 +166,7 @@
                     <li>
                         <a href="javascript:;" class="top-menu">
                             <div class="top-menu__icon"><i data-lucide="sidebar"></i></div>
-                            <div class="top-menu__title">{{$cat->name}} <i data-lucide="chevron-down"
+                            <div class="top-menu__title">{{ $cat->{'name_'.app()->getLocale()} }} <i data-lucide="chevron-down"
                                                                            class="top-menu__sub-icon"></i>
                             </div>
                         </a>
@@ -194,7 +176,7 @@
                                 <li>
                                     <a href="{{route('gift.category',$c->id)}}" class="top-menu">
                                         <div class="top-menu__icon"><i data-lucide="activity"></i></div>
-                                        <div class="top-menu__title"> {{$c->name}}<i data-lucide="chevron-down"
+                                        <div class="top-menu__title"> {{ $c->{'name_'.app()->getLocale()} }}<i data-lucide="chevron-down"
                                                                                      class="top-menu__sub-icon"></i>
                                         </div>
                                     </a>
@@ -203,7 +185,7 @@
                                             <li>
                                                 <a href="{{route('gift.category',$cs->id)}} " class="top-menu">
                                                     <div class="top-menu__icon"><i data-lucide="zap"></i></div>
-                                                    <div class="top-menu__title">{{$cs->name}}</div>
+                                                    <div class="top-menu__title">{{ $cs->{'name_'.app()->getLocale()} }}</div>
                                                 </a>
                                             </li>
                                         @endforeach

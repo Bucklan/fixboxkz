@@ -17,11 +17,12 @@ class GiftController extends Controller
     }
 
 
-    public function index(Gift $allGift)
+    public function index(Request $request,Gift $allGift)
     {
         $categories = Category::whereNull('parent_id')->with('categories')->get();
+       $countLikes =  $request->session()->get('countLikes');
 //        dd($categories);
-        return view('gifts.index', ['AllGifts' => $allGift::with('comments.user')->get(), 'categories' => $categories]);//,'categories'=>$categories
+        return view('gifts.index', ['AllGifts' => $allGift::with('comments.user')->get(), 'categories' => $categories,'countLikes' => $countLikes],);//,'categories'=>$categories
     }
 
 
@@ -59,7 +60,7 @@ class GiftController extends Controller
         return redirect()->route('adm.users.gifts')->with('message', 'gift saved');
     }
 
-    public function show(Gift $gift)
+    public function show(Request $request,Gift $gift)
     {
         $myRating = 0;
         $giftLikee = false;
@@ -85,9 +86,10 @@ class GiftController extends Controller
         foreach ($LikeUsers as $like) {
             if ($like->pivot->like) {
                 $sumLike += 1;
+                $request->session()->put('countLikes',);
             }
         }
-
+        $request->session()->put('countLikes',$sumLike);
         if (count($ratedUsers) > 0) {
             $avgRating = $sum / count($ratedUsers);
         }

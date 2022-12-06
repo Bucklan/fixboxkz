@@ -9,29 +9,6 @@
                 Cart Page
             </h2>
         </div>
-<<<<<<< HEAD
-        <div class="intro-y grid grid-cols-12 gap-6 mt-5">
-            <table class="table">
-                @foreach($giftsInCart as $gift)
-                    <tr>
-                        <td>{{$gift->name}}</td>
-                        <td>{{$gift->pivot->number}}</td>
-                        <td>{{$gift->pivot->status}}</td>
-                        <td>
-                            <form action="{{route('cart.deletefromcart',$gift->id)}}">
-                                @csrf
-                                <button class="btn btn-dark">DELETE</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-
-        </div><form action="{{route('cart.buy')}}" method="post">
-            @csrf
-            <button class="btn btn-success">Buy</button>
-        </form>
-=======
             <div class="intro-y grid grid-cols-12 gap-6 mt-5">
                 <table class="table">
                     @foreach($giftsInCart as $gift)
@@ -55,7 +32,6 @@
                 @csrf
                 <button class="btn btn-success">Buy</button>
             </form>
->>>>>>> a6434a9 (first commit)
     </div>
 @endsection
 
