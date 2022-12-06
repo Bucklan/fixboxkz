@@ -18,6 +18,10 @@ class PartnerContoller extends Controller
 
     public function store(Request $request)
     {
+<<<<<<< HEAD
+=======
+        $user_id = Auth::user()->id;
+>>>>>>> 39935d4 (first commit)
         $request->validate([
             'name_company' => 'required|max:255',
             'image' => 'required|mimes:png,jpg',
@@ -30,12 +34,17 @@ class PartnerContoller extends Controller
 
 
         Auth::user()->partner()->create([
+<<<<<<< HEAD
             'user_id' => Auth::user()->id,
+=======
+            'user_id' => $user_id,
+>>>>>>> 39935d4 (first commit)
             'name_company' => $request->input('name_company'),
             'image' => $imageName,
         ]);
         return redirect()->route('gift.index')->with('message', 'Your request has been sent successfully');
     }
+<<<<<<< HEAD
 
     public function is_partner(Partner $partner)
     {
@@ -51,4 +60,6 @@ class PartnerContoller extends Controller
     {
 
     }
+=======
+>>>>>>> 39935d4 (first commit)
 }

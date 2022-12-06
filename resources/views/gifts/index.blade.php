@@ -6,7 +6,7 @@
     <div class="content">
         <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
             <h2 class="text-lg font-medium mr-auto">
-                {{ __('messages.Main_page') }}
+                Main Page
             </h2>
         </div>
         <div class="intro-y grid grid-cols-12 gap-6 mt-5">
@@ -28,20 +28,20 @@
                             <div class="dropdown-menu w-40">
                                 <ul class="dropdown-content">
                                     <li>
-                                        <a href="" class="dropdown-item"> <i data-lucide="edit-2" class="w-4 h-4 mr-2"></i>{{ __('messages.edit_gift') }}</a>
+                                        <a href="" class="dropdown-item"> <i data-lucide="edit-2" class="w-4 h-4 mr-2"></i> Edit Post </a>
                                     </li>
                                     <li>
                                         <form action="{{route('gift.destroy',$gift->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="dropdown-item"> <i data-lucide="trash" class="w-4 h-4 mr-2"></i>{{ __('messages.delete_gift') }}</button>
+                                            <button class="dropdown-item"> <i data-lucide="trash" class="w-4 h-4 mr-2"></i> Delete Post </button>
                                         </form>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="absolute bottom-0 text-white px-5 pb-6 z-10"> <span class="bg-white/20 px-2 py-1 rounded">{{ $gift->category->{'name_'.app()->getLocale()} }}</span> <a href="{{route('gift.show',$gift->id)}}" class="block font-medium text-xl mt-3">{{$gift->name}}</a> </div>
+                    <div class="absolute bottom-0 text-white px-5 pb-6 z-10"> <span class="bg-white/20 px-2 py-1 rounded">{{$gift->category->name}}</span> <a href="{{route('gift.show',$gift->id)}}" class="block font-medium text-xl mt-3">{{$gift->name}}</a> </div>
                 </div>
                 <div class="p-5 text-slate-600 dark:text-slate-500">{{$gift->content}}</div>
                 <div class="flex items-center px-5 py-3 border-t border-slate-200/60 dark:border-darkmode-400">
@@ -50,18 +50,14 @@
                 </div>
                 <div class="px-5 pt-3 pb-5 border-t border-slate-200/60 dark:border-darkmode-400">
                     <div class="w-full flex text-slate-500 text-xs sm:text-sm">
-                        <div class="mr-2"> {{ __('messages.comments') }}: <span class="font-medium">{{count($gift->comments)}}</span> </div>
-                        <div class="mr-2"> {{ __('messages.views') }}: {{count($gift->comments)}}<span class="font-medium"></span> </div>
-                        <div class="ml-auto"> {{ __('messages.likes') }}: @if($countLikes>0){{$countLikes}}@else 0 @endif<span class="font-medium"></span> </div>
+                        <div class="mr-2"> Comments: <span class="font-medium">{{count($gift->comments)}}</span> </div>
+                        <div class="mr-2"> Views: <span class="font-medium"></span> </div>
+                        <div class="ml-auto"> Likes: <span class="font-medium"></span> </div>
                     </div>
                 </div>
             </div>
         @endforeach
             <!-- END: Blog Layout -->
-            <div class="col-3">
-                <a href="{{route('partner.create')}}" class="btn btn-primary"><h3>{{ __('messages.I want to become a partner') }}</h3></a>
-
-            </div>
         </div>
     </div>
 @endsection
